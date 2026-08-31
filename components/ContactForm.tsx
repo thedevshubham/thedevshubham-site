@@ -96,7 +96,7 @@ export default function ContactForm() {
         )}
       </button>
       {status === 'error' && (
-        <p className="text-sm text-red-700">Something went wrong — email hello@thedevshubham.com directly instead.</p>
+        <p className="text-sm text-red-700">Something went wrong — please try again in a moment.</p>
       )}
     </form>
   );

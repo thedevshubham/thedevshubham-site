@@ -19,10 +19,7 @@ export default function Footer() {
         </Link>
         <div className="mt-8 font-mono text-xs text-[#9C9788] flex flex-wrap justify-between gap-2.5">
           <span>
-            <a href="mailto:hello@thedevshubham.com" className="underline">
-              hello@thedevshubham.com
-            </a>{' '}
-            · GitHub:{' '}
+            GitHub:{' '}
             <a href="https://github.com/thedevshubham" className="underline">
               @thedevshubham
             </a>

@@ -24,13 +24,6 @@ export default function CommandPalette() {
 
     const external: Item[] = [
       {
-        label: 'Email me',
-        hint: 'hello@thedevshubham.com',
-        action: () => {
-          window.location.href = 'mailto:hello@thedevshubham.com';
-        },
-      },
-      {
         label: 'GitHub',
         hint: '@thedevshubham',
         action: () => window.open('https://github.com/thedevshubham', '_blank', 'noopener'),
