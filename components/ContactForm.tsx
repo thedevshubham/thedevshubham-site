@@ -2,9 +2,7 @@
 
 import { useState, FormEvent } from 'react';
 
-// Sign up free at https://formspree.io, create a form, and replace this ID
-// with the one they give you (looks like "xzzjgpqr").
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xppzpaob';
 
 export default function ContactForm() {
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
