@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Big_Shoulders_Display, Inter, JetBrains_Mono } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
@@ -66,6 +67,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main>{children}</main>
         <Footer />
         <CommandPalette />
+        <Analytics />
       </body>
     </html>
   );
