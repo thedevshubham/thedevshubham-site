@@ -10,6 +10,7 @@ export type Project = {
   stack: string[];
   liveUrl?: string;
   embeddable: boolean; // set false if the site blocks iframes — falls back to a link-only card
+  screenshot?: string; // static fallback image shown when embeddable is false
 };
 
 export const projects: Project[] = [
@@ -37,6 +38,7 @@ export const projects: Project[] = [
     stack: ['Shopify 2.0', 'Liquid', 'Vue.js'],
     embeddable: false,
     liveUrl: 'https://www.stio.com',
+    screenshot: '/screenshots/stio-apparel.png',
   },
   {
     slug: 'dropps',
@@ -50,6 +52,7 @@ export const projects: Project[] = [
     stack: ['Shopify 2.0', 'React', 'TypeScript'],
     embeddable: false,
     liveUrl: 'https://www.dropps.com',
+    screenshot: '/screenshots/dropps.png',
   },
   {
     slug: 'sunbelt-rentals',
@@ -63,5 +66,6 @@ export const projects: Project[] = [
     stack: ['React', 'JavaScript', 'AEM', 'GraphQL'],
     embeddable: false,
     liveUrl: 'https://www.sunbeltrentals.com/',
+    screenshot: '/screenshots/sunbelt-rentals.png',
   },
 ];

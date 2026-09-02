@@ -51,10 +51,17 @@ export default function CaseStudy({ params }: { params: { slug: string } }) {
             className="w-full h-[480px] bg-white"
             loading="lazy"
           />
+        ) : project.screenshot ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={project.screenshot}
+            alt={`Screenshot of the ${project.name} live site`}
+            className="w-full h-auto block"
+          />
         ) : (
           <div className="p-10 text-center">
             <p className="font-mono text-sm mb-4">
-              This site doesn&apos;t allow embedded previews — take a look at the real thing instead.
+              This project isn&apos;t publicly deployed right now — here&apos;s the breakdown instead.
             </p>
           </div>
         )}
