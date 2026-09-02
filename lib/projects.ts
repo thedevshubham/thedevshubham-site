@@ -62,5 +62,6 @@ export const projects: Project[] = [
     outcome: 'A modern rental and e-commerce experience layered cleanly onto enterprise infrastructure.',
     stack: ['React', 'JavaScript', 'AEM', 'GraphQL'],
     embeddable: false,
+    liveUrl: 'https://www.sunbeltrentals.com/',
   },
 ];
