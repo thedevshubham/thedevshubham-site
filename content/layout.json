@@ -1,0 +1,36 @@
+{
+  "marquee": [
+    "WRITING CODE",
+    "SHIPPING FEATURES",
+    "FIXING BUGS",
+    "OPTIMIZING PERFORMANCE",
+    "AUTOMATING THE BORING PARTS"
+  ],
+  "nav": {
+    "logo": "THEDEVSHUBHAM",
+    "links": [
+      { "href": "/services", "label": "SERVICES" },
+      { "href": "/work", "label": "WORK" }
+    ],
+    "cta": { "href": "/contact", "label": "SAY HELLO" }
+  },
+  "metaRow": ["THEDEVSHUBHAM.COM — FRONTEND", "REMOTE · WORLDWIDE", "BUILDING SINCE 2018"],
+  "footer": {
+    "eyebrow": "GOT A PROJECT? A BUG? DOUBTS?",
+    "cta": { "href": "/contact", "label": "WRITE ME" },
+    "location": "Remote · building for clients worldwide"
+  },
+  "commandPalette": {
+    "placeholder": "Jump to a page, project, or contact…",
+    "empty": "No matches.",
+    "projectHint": "Case study",
+    "pages": [
+      { "label": "Home", "hint": "Overview", "href": "/" },
+      { "label": "Services", "hint": "What I do", "href": "/services" },
+      { "label": "Work", "hint": "Case studies", "href": "/work" },
+      { "label": "Contact", "hint": "Get in touch", "href": "/contact" }
+    ],
+    "keys": ["↑↓ navigate", "↵ select", "esc close"],
+    "hint": { "before": "Press", "key": "⌘K", "after": "for everything" }
+  }
+}

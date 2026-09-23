@@ -1,0 +1,28 @@
+{
+  "meta": {
+    "title": "Contact",
+    "description": "Get in touch about a frontend, Shopify, or automation project."
+  },
+  "title": "GET IN TOUCH",
+  "intro": "Tell me what you're building.",
+  "form": {
+    "endpoint": "https://formspree.io/f/xppzpaob",
+    "nameLabel": "NAME",
+    "emailLabel": "EMAIL",
+    "projectLabel": "PROJECT TYPE",
+    "projectPlaceholder": "Select one",
+    "projectOptions": [
+      "Web app development",
+      "Shopify / e-commerce",
+      "Web scraping / bots",
+      "Performance optimization",
+      "Accessibility audit",
+      "Something else"
+    ],
+    "submit": "SEND",
+    "sending": "SENDING…",
+    "sentTitle": "MESSAGE SENT.",
+    "sentClosing": "Talk soon.",
+    "error": "Something went wrong — please try again in a moment."
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "meta": {
+    "title": "Services",
+    "description": "Frontend, Shopify, scraping & bots, performance and accessibility work."
+  },
+  "title": "SERVICES",
+  "intro": "One person across the frontend stack — no handoffs, no departments, no lost context between them.",
+  "items": [
+    {
+      "idx": "01",
+      "name": "FRONTEND & WEB APPS",
+      "desc": "Custom web application development — dashboards, internal tools, customer-facing products. Built with React and Next.js, with accessibility considered from the start, not bolted on after.",
+      "tags": ["REACT", "NEXT.JS", "TYPESCRIPT"]
+    },
+    {
+      "idx": "02",
+      "name": "SHOPIFY & E-COMMERCE",
+      "desc": "High-performance Shopify 2.0 storefronts — custom sections, subscription flows, product configurators. Built for speed and conversion, not just to look good.",
+      "tags": ["SHOPIFY 2.0", "LIQUID", "VUE.JS"]
+    },
+    {
+      "idx": "03",
+      "name": "WEB SCRAPING & BOTS",
+      "desc": "Data extraction pipelines and automation for repetitive manual work — pricing checks, data collection, scheduled reports.",
+      "tags": ["NODE.JS", "APIS"]
+    },
+    {
+      "idx": "04",
+      "name": "PERFORMANCE OPTIMIZATION",
+      "desc": "Core Web Vitals audits and fixes — code splitting, lazy loading, bundle size reduction. The unglamorous work that actually moves the needle on load time.",
+      "tags": ["LIGHTHOUSE", "WEB VITALS", "WEBPACK"]
+    },
+    {
+      "idx": "05",
+      "name": "ACCESSIBILITY (A11Y)",
+      "desc": "WCAG-checked accessibility audits and remediation — keyboard navigation, screen reader support, contrast fixes. The thing most sites skip.",
+      "tags": ["WCAG", "ARIA", "AXE"]
+    }
+  ],
+  "cta": { "href": "/contact", "label": "GET IN TOUCH" }
+}

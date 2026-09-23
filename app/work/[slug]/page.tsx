@@ -2,6 +2,9 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { projects } from '@/lib/projects';
+import { work } from '@/lib/content';
+
+const copy = work.caseStudy;
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -29,7 +32,7 @@ export default function CaseStudy({ params }: { params: { slug: string } }) {
   return (
     <div className="max-w-[860px] mx-auto px-7 py-14">
       <Link href="/work" className="font-mono text-xs text-muted underline">
-        ← Back to work
+        {copy.back}
       </Link>
 
       <div className="font-mono text-xs text-muted mt-8 mb-3">{project.num}</div>
@@ -60,9 +63,7 @@ export default function CaseStudy({ params }: { params: { slug: string } }) {
           />
         ) : (
           <div className="p-10 text-center">
-            <p className="font-mono text-sm mb-4">
-              This project isn&apos;t publicly deployed right now — here&apos;s the breakdown instead.
-            </p>
+            <p className="font-mono text-sm mb-4">{copy.noPreview}</p>
           </div>
         )}
         {project.liveUrl && (
@@ -74,7 +75,7 @@ export default function CaseStudy({ params }: { params: { slug: string } }) {
               rel="noopener noreferrer"
               className="font-mono text-xs font-bold underline"
             >
-              Open live site ↗
+              {copy.openLive}
             </a>
           </div>
         )}
@@ -84,21 +85,21 @@ export default function CaseStudy({ params }: { params: { slug: string } }) {
         <div>
           <h2 className="inline-flex items-center gap-2 font-mono text-xs text-muted mb-2">
             <span className={`w-1.5 h-1.5 rounded-full ${colorClass[project.color]}`} aria-hidden="true" />
-            THE PROBLEM
+            {copy.problem}
           </h2>
           <p className="text-[15.5px]">{project.problem}</p>
         </div>
         <div>
           <h2 className="inline-flex items-center gap-2 font-mono text-xs text-muted mb-2">
             <span className={`w-1.5 h-1.5 rounded-full ${colorClass[project.color]}`} aria-hidden="true" />
-            THE APPROACH
+            {copy.approach}
           </h2>
           <p className="text-[15.5px]">{project.approach}</p>
         </div>
         <div>
           <h2 className="inline-flex items-center gap-2 font-mono text-xs text-muted mb-2">
             <span className={`w-1.5 h-1.5 rounded-full ${colorClass[project.color]}`} aria-hidden="true" />
-            THE OUTCOME
+            {copy.outcome}
           </h2>
           <p className="text-[15.5px]">{project.outcome}</p>
         </div>
@@ -106,10 +107,10 @@ export default function CaseStudy({ params }: { params: { slug: string } }) {
 
       <div className="mt-14 dashed-t pt-8">
         <Link
-          href="/contact"
+          href={copy.cta.href}
           className="group font-mono font-bold text-sm bg-lime border-2 border-ink px-6 py-3.5 rounded-full inline-block transition-all duration-150 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0_0_#14120D]"
         >
-          START A SIMILAR PROJECT{' '}
+          {copy.cta.label}{' '}
           <span className="inline-block transition-transform duration-150 group-hover:translate-x-1">→</span>
         </Link>
       </div>

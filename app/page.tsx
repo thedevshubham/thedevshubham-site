@@ -3,20 +3,15 @@ import MetaRow from '@/components/MetaRow';
 import WorkCarousel from '@/components/WorkCarousel';
 import CommandPaletteHint from '@/components/CommandPaletteHint';
 import { projects } from '@/lib/projects';
+import { home, type Accent } from '@/lib/content';
 
-const services = [
-  { idx: '01', name: 'FRONTEND', desc: "Web apps that don't lag. React, Next.js, design systems, accessibility built in.", tags: ['REACT', 'NEXT.JS', 'TYPESCRIPT'] },
-  { idx: '02', name: 'SHOPIFY', desc: 'High-performance storefronts, custom sections, subscription flows.', tags: ['SHOPIFY 2.0', 'LIQUID', 'VUE.JS'] },
-  { idx: '03', name: 'SCRAPING & BOTS', desc: 'Data extraction pipelines and automation for the repetitive stuff.', tags: ['NODE.JS', 'APIS'] },
-  { idx: '04', name: 'PERFORMANCE & A11Y', desc: 'Core Web Vitals, load-time fixes, WCAG-checked accessibility.', tags: ['LIGHTHOUSE', 'WEB VITALS', 'WCAG'] },
-];
+const { stats, hero, manifesto, services, work, process } = home;
 
-const steps = [
-  { n: '01', t: 'SCOPE CALL', d: 'What you need, honestly assessed.' },
-  { n: '02', t: 'PROPOSAL', d: 'Clear scope, timeline, price.' },
-  { n: '03', t: 'BUILD', d: 'Regular updates, no silence.' },
-  { n: '04', t: 'HANDOFF', d: 'Clean code, documented, yours.' },
-];
+const accentText: Record<Accent, string> = {
+  lime: 'text-lime',
+  mint: 'text-mint',
+  gold: 'text-gold',
+};
 
 export default function Home() {
   return (
@@ -27,59 +22,52 @@ export default function Home() {
         {/* Hero */}
         <section className="relative py-10 sm:py-16">
           <div className="hidden lg:flex flex-col gap-4 absolute right-0 top-6 w-[210px] border-2 border-ink rounded-2xl bg-white p-5">
-            <div>
-              <div className="font-mono text-[11px] text-muted mb-1">YEARS BUILDING</div>
-              <div className="display text-3xl">7+</div>
-            </div>
-            <div className="border-t-2 border-dashed border-line pt-4">
-              <div className="font-mono text-[11px] text-muted mb-1">SERVICES</div>
-              <div className="display text-3xl">5</div>
-            </div>
-            <div className="border-t-2 border-dashed border-line pt-4">
-              <div className="font-mono text-[11px] text-muted mb-1">AVAILABILITY</div>
-              <div className="display text-xl text-[#5C8A3A]">OPEN</div>
-            </div>
-            <div className="border-t-2 border-dashed border-line pt-4">
-              <div className="font-mono text-[11px] text-muted mb-1">BASED</div>
-              <div className="text-sm font-semibold">Remote — Worldwide</div>
-            </div>
+            {stats.map((stat, i) => (
+              <div key={stat.label} className={i > 0 ? 'border-t-2 border-dashed border-line pt-4' : undefined}>
+                <div className="font-mono text-[11px] text-muted mb-1">{stat.label}</div>
+                {stat.variant === 'status' ? (
+                  <div className="display text-xl text-[#5C8A3A]">{stat.value}</div>
+                ) : stat.variant === 'text' ? (
+                  <div className="text-sm font-semibold">{stat.value}</div>
+                ) : (
+                  <div className="display text-3xl">{stat.value}</div>
+                )}
+              </div>
+            ))}
           </div>
 
           <div className="inline-flex items-center gap-2 font-mono text-xs text-muted mb-4">
             <span className="w-1.5 h-1.5 rounded-full bg-lime" aria-hidden="true" />
-            FRONTEND ENGINEER — FREELANCE
+            {hero.eyebrow}
           </div>
           <h1 className="display text-[clamp(64px,14vw,176px)] leading-[0.84]">
             <span className="relative inline-block">
-              SHUBHAM
+              {hero.firstName}
               <span
                 aria-hidden
                 className="absolute left-full bottom-0 -translate-x-1/2 translate-y-1/2 w-[clamp(80px,11vw,150px)] h-[clamp(80px,11vw,150px)] rounded-full bg-lime border-2 border-ink flex items-center justify-center display text-base sm:text-2xl z-10"
               >
-                DEV
+                {hero.badge}
               </span>
             </span>
             <span className="block">
-              <span className="inline-block bg-lime px-4 sm:px-6 rounded-lg">BHATT</span>
+              <span className="inline-block bg-lime px-4 sm:px-6 rounded-lg">{hero.lastName}</span>
             </span>
           </h1>
-          <p className="max-w-[560px] text-base sm:text-lg text-muted mt-8">
-            I build fast, accessible web apps and Shopify storefronts — from retail analytics
-            dashboards to e-commerce platforms. Currently taking on new freelance projects.
-          </p>
+          <p className="max-w-[560px] text-base sm:text-lg text-muted mt-8">{hero.intro}</p>
           <div className="flex items-center gap-5 flex-wrap pt-7 sm:pt-8">
             <div className="flex gap-3">
               <Link
-                href="/work"
+                href={hero.primaryCta.href}
                 className="group font-mono font-bold text-sm bg-lime border-2 border-ink px-6 py-3.5 rounded-full transition-all duration-150 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0_0_#14120D]"
               >
-                VIEW WORK <span className="inline-block transition-transform duration-150 group-hover:translate-x-1">→</span>
+                {hero.primaryCta.label} <span className="inline-block transition-transform duration-150 group-hover:translate-x-1">→</span>
               </Link>
               <Link
-                href="/services"
+                href={hero.secondaryCta.href}
                 className="font-mono font-bold text-sm border-2 border-ink px-6 py-3.5 rounded-full transition-all duration-150 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0_0_#14120D]"
               >
-                WHY IT MATTERS
+                {hero.secondaryCta.label}
               </Link>
             </div>
             <CommandPaletteHint />
@@ -92,41 +80,20 @@ export default function Home() {
         <div className="max-w-[1080px] mx-auto px-7">
           <div className="inline-flex items-center gap-2 font-mono text-xs text-[#9C9788] mb-8">
             <span className="w-1.5 h-1.5 rounded-full bg-lime" aria-hidden="true" />
-            MANIFESTO
+            {manifesto.eyebrow}
           </div>
 
-          <div>
-            <h3 className="display text-[clamp(34px,6vw,60px)] leading-[1.05]">
-              I BUILD <span className="text-lime">FAST.</span>
-            </h3>
-            <p className="text-[#B7B2A2] text-sm sm:text-base mt-2 max-w-[520px]">
-              Core Web Vitals treated as a requirement, not an afterthought.
-            </p>
-          </div>
-
-          <div className="border-t border-[#3A3826] mt-8 pt-8 sm:mt-10 sm:pt-10">
-            <h3 className="display text-[clamp(34px,6vw,60px)] leading-[1.05]">
-              I BUILD <span className="text-mint">ACCESSIBLE.</span>
-            </h3>
-            <p className="text-[#B7B2A2] text-sm sm:text-base mt-2 max-w-[520px]">
-              Keyboard navigation, screen readers, and contrast — checked, not bolted on after.
-            </p>
-          </div>
-
-          <div className="border-t border-[#3A3826] mt-8 pt-8 sm:mt-10 sm:pt-10">
-            <h3 className="display text-[clamp(34px,6vw,60px)] leading-[1.05]">
-              I AUTOMATE <span className="text-gold">EVERYTHING.</span>
-            </h3>
-            <p className="text-[#B7B2A2] text-sm sm:text-base mt-2 max-w-[520px]">
-              Scraping, bots, and repetitive work handled — so the important decisions get the
-              attention.
-            </p>
-          </div>
+          {manifesto.statements.map((s, i) => (
+            <div key={s.highlight} className={i > 0 ? 'border-t border-[#3A3826] mt-8 pt-8 sm:mt-10 sm:pt-10' : undefined}>
+              <h3 className="display text-[clamp(34px,6vw,60px)] leading-[1.05]">
+                {s.lead} <span className={accentText[s.color]}>{s.highlight}</span>
+              </h3>
+              <p className="text-[#B7B2A2] text-sm sm:text-base mt-2 max-w-[520px]">{s.desc}</p>
+            </div>
+          ))}
 
           <p className="max-w-[560px] text-[#B7B2A2] text-[15px] mt-10 sm:mt-12 border-t border-[#3A3826] pt-8">
-            7 years across companies, agencies, and products — retail analytics platforms to
-            e-commerce storefronts. One person across frontend, Shopify, scraping, bots,
-            performance, and accessibility. Nothing lost between departments that don&apos;t exist.
+            {manifesto.closing}
           </p>
         </div>
       </section>
@@ -136,16 +103,16 @@ export default function Home() {
         <section className="py-14 dashed-b">
           <div className="flex justify-between items-baseline mb-7 flex-wrap gap-2">
             <div className="flex items-baseline gap-3.5">
-              <span className="font-mono text-muted text-sm">(01)</span>
-              <h2 className="display text-[clamp(30px,5vw,46px)]">WHAT I WORK WITH</h2>
+              <span className="font-mono text-muted text-sm">{services.num}</span>
+              <h2 className="display text-[clamp(30px,5vw,46px)]">{services.title}</h2>
             </div>
             <span className="inline-flex items-center gap-2 font-mono text-xs text-muted">
               <span className="w-1.5 h-1.5 rounded-full bg-lime" aria-hidden="true" />
-              THE TOOLBOX
+              {services.eyebrow}
             </span>
           </div>
 
-          {services.map((s) => (
+          {services.items.map((s) => (
             <div
               key={s.idx}
               className="group grid sm:grid-cols-[60px_1fr_auto] gap-5 items-center -mx-7 px-7 py-6 rounded-md border-t-2 border-dashed border-line transition-colors hover:bg-lime hover:border-t-transparent"
@@ -165,8 +132,8 @@ export default function Home() {
             </div>
           ))}
           <div className="pt-6">
-            <Link href="/services" className="font-mono text-xs underline">
-              See full services breakdown →
+            <Link href={services.link.href} className="font-mono text-xs underline">
+              {services.link.label}
             </Link>
           </div>
         </section>
@@ -175,12 +142,12 @@ export default function Home() {
         <section className="py-14 dashed-b">
           <div className="flex justify-between items-baseline mb-7 flex-wrap gap-2">
             <div className="flex items-baseline gap-3.5">
-              <span className="font-mono text-muted text-sm">(02)</span>
-              <h2 className="display text-[clamp(30px,5vw,46px)]">SELECTED WORK</h2>
+              <span className="font-mono text-muted text-sm">{work.num}</span>
+              <h2 className="display text-[clamp(30px,5vw,46px)]">{work.title}</h2>
             </div>
             <span className="inline-flex items-center gap-2 font-mono text-xs text-muted">
               <span className="w-1.5 h-1.5 rounded-full bg-mint" aria-hidden="true" />
-              SCROLL SIDEWAYS →
+              {work.eyebrow}
             </span>
           </div>
           <WorkCarousel projects={projects} />
@@ -190,17 +157,17 @@ export default function Home() {
         <section className="py-14">
           <div className="flex justify-between items-baseline mb-10 flex-wrap gap-2">
             <div className="flex items-baseline gap-3.5">
-              <span className="font-mono text-muted text-sm">(03)</span>
-              <h2 className="display text-[clamp(30px,5vw,46px)]">HOW THE WORK GOES</h2>
+              <span className="font-mono text-muted text-sm">{process.num}</span>
+              <h2 className="display text-[clamp(30px,5vw,46px)]">{process.title}</h2>
             </div>
             <span className="inline-flex items-center gap-2 font-mono text-xs text-muted">
               <span className="w-1.5 h-1.5 rounded-full bg-gold" aria-hidden="true" />
-              4 STEPS, NO SURPRISES
+              {process.eyebrow}
             </span>
           </div>
           <div className="relative flex flex-col sm:flex-row justify-between gap-8 sm:gap-4">
             <div className="hidden sm:block absolute top-11 left-11 right-11 border-t-2 border-dashed border-line z-0" />
-            {steps.map((s) => (
+            {process.steps.map((s) => (
               <div key={s.n} className="group relative z-10 text-center flex-1">
                 <div className="w-[88px] h-[88px] rounded-full border-2 border-ink bg-cream flex items-center justify-center display text-2xl mx-auto mb-4 transition-colors group-hover:bg-lime">
                   {s.n}

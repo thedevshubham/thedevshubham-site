@@ -1,8 +1,9 @@
 'use client';
 
 import { useState, FormEvent } from 'react';
+import { contact, site } from '@/lib/content';
 
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xppzpaob';
+const copy = contact.form;
 
 export default function ContactForm() {
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
@@ -13,7 +14,7 @@ export default function ContactForm() {
     const form = e.currentTarget;
     const data = new FormData(form);
     try {
-      const res = await fetch(FORMSPREE_ENDPOINT, {
+      const res = await fetch(copy.endpoint, {
         method: 'POST',
         body: data,
         headers: { Accept: 'application/json' },
@@ -32,8 +33,10 @@ export default function ContactForm() {
   if (status === 'sent') {
     return (
       <div className="border-2 border-ink rounded-2xl p-8 bg-lime">
-        <p className="display text-2xl mb-2">MESSAGE SENT.</p>
-        <p className="text-sm">Usually reply within a day. Talk soon.</p>
+        <p className="display text-2xl mb-2">{copy.sentTitle}</p>
+        <p className="text-sm">
+          {site.replyTime} {copy.sentClosing}
+        </p>
       </div>
     );
   }
@@ -42,7 +45,7 @@ export default function ContactForm() {
     <form onSubmit={handleSubmit} className="space-y-5">
       <div>
         <label htmlFor="name" className="font-mono text-xs block mb-2">
-          NAME
+          {copy.nameLabel}
         </label>
         <input
           id="name"
@@ -53,7 +56,7 @@ export default function ContactForm() {
       </div>
       <div>
         <label htmlFor="email" className="font-mono text-xs block mb-2">
-          EMAIL
+          {copy.emailLabel}
         </label>
         <input
           id="email"
@@ -65,7 +68,7 @@ export default function ContactForm() {
       </div>
       <div>
         <label htmlFor="project" className="font-mono text-xs block mb-2">
-          PROJECT TYPE
+          {copy.projectLabel}
         </label>
         <select
           id="project"
@@ -73,13 +76,10 @@ export default function ContactForm() {
           required
           className="w-full border-2 border-ink rounded-lg px-4 py-3 bg-white focus-visible:outline-none focus:ring-2 focus:ring-ink"
         >
-          <option value="">Select one</option>
-          <option>Web app development</option>
-          <option>Shopify / e-commerce</option>
-          <option>Web scraping / bots</option>
-          <option>Performance optimization</option>
-          <option>Accessibility audit</option>
-          <option>Something else</option>
+          <option value="">{copy.projectPlaceholder}</option>
+          {copy.projectOptions.map((o) => (
+            <option key={o}>{o}</option>
+          ))}
         </select>
       </div>
       <button
@@ -88,15 +88,15 @@ export default function ContactForm() {
         className="group font-mono font-bold text-sm bg-lime border-2 border-ink px-6 py-3.5 rounded-full transition-all duration-150 disabled:opacity-60 enabled:hover:-translate-x-1 enabled:hover:-translate-y-1 enabled:hover:shadow-[4px_4px_0_0_#14120D]"
       >
         {status === 'sending' ? (
-          'SENDING…'
+          copy.sending
         ) : (
           <>
-            SEND <span className="inline-block transition-transform duration-150 group-hover:translate-x-1">→</span>
+            {copy.submit} <span className="inline-block transition-transform duration-150 group-hover:translate-x-1">→</span>
           </>
         )}
       </button>
       {status === 'error' && (
-        <p className="text-sm text-red-700">Something went wrong — please try again in a moment.</p>
+        <p className="text-sm text-red-700">{copy.error}</p>
       )}
     </form>
   );

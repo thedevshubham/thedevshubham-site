@@ -1,13 +1,7 @@
-const items = [
-  'WRITING CODE',
-  'SHIPPING FEATURES',
-  'FIXING BUGS',
-  'OPTIMIZING PERFORMANCE',
-  'AUTOMATING THE BORING PARTS',
-];
+import { layout } from '@/lib/content';
 
 export default function Marquee() {
-  const line = items.join(' ✳ ') + ' ✳ ';
+  const line = layout.marquee.join(' ✳ ') + ' ✳ ';
   return (
     <div
       aria-hidden="true"

@@ -1,0 +1,69 @@
+{
+  "stats": [
+    { "label": "YEARS BUILDING", "value": "7+", "variant": "number" },
+    { "label": "SERVICES", "value": "5", "variant": "number" },
+    { "label": "AVAILABILITY", "value": "OPEN", "variant": "status" },
+    { "label": "BASED", "value": "Remote — Worldwide", "variant": "text" }
+  ],
+  "hero": {
+    "eyebrow": "FRONTEND ENGINEER — FREELANCE",
+    "firstName": "SHUBHAM",
+    "badge": "DEV",
+    "lastName": "BHATT",
+    "intro": "I build fast, accessible web apps and Shopify storefronts — from retail analytics dashboards to e-commerce platforms. Currently taking on new freelance projects.",
+    "primaryCta": { "href": "/work", "label": "VIEW WORK" },
+    "secondaryCta": { "href": "/services", "label": "WHY IT MATTERS" }
+  },
+  "manifesto": {
+    "eyebrow": "MANIFESTO",
+    "statements": [
+      {
+        "lead": "I BUILD",
+        "highlight": "FAST.",
+        "color": "lime",
+        "desc": "Core Web Vitals treated as a requirement, not an afterthought."
+      },
+      {
+        "lead": "I BUILD",
+        "highlight": "ACCESSIBLE.",
+        "color": "mint",
+        "desc": "Keyboard navigation, screen readers, and contrast — checked, not bolted on after."
+      },
+      {
+        "lead": "I AUTOMATE",
+        "highlight": "EVERYTHING.",
+        "color": "gold",
+        "desc": "Scraping, bots, and repetitive work handled — so the important decisions get the attention."
+      }
+    ],
+    "closing": "7 years across companies, agencies, and products — retail analytics platforms to e-commerce storefronts. One person across frontend, Shopify, scraping, bots, performance, and accessibility. Nothing lost between departments that don't exist."
+  },
+  "services": {
+    "num": "(01)",
+    "title": "WHAT I WORK WITH",
+    "eyebrow": "THE TOOLBOX",
+    "items": [
+      { "idx": "01", "name": "FRONTEND", "desc": "Web apps that don't lag. React, Next.js, design systems, accessibility built in.", "tags": ["REACT", "NEXT.JS", "TYPESCRIPT"] },
+      { "idx": "02", "name": "SHOPIFY", "desc": "High-performance storefronts, custom sections, subscription flows.", "tags": ["SHOPIFY 2.0", "LIQUID", "VUE.JS"] },
+      { "idx": "03", "name": "SCRAPING & BOTS", "desc": "Data extraction pipelines and automation for the repetitive stuff.", "tags": ["NODE.JS", "APIS"] },
+      { "idx": "04", "name": "PERFORMANCE & A11Y", "desc": "Core Web Vitals, load-time fixes, WCAG-checked accessibility.", "tags": ["LIGHTHOUSE", "WEB VITALS", "WCAG"] }
+    ],
+    "link": { "href": "/services", "label": "See full services breakdown →" }
+  },
+  "work": {
+    "num": "(02)",
+    "title": "SELECTED WORK",
+    "eyebrow": "SCROLL SIDEWAYS →"
+  },
+  "process": {
+    "num": "(03)",
+    "title": "HOW THE WORK GOES",
+    "eyebrow": "4 STEPS, NO SURPRISES",
+    "steps": [
+      { "n": "01", "t": "SCOPE CALL", "d": "What you need, honestly assessed." },
+      { "n": "02", "t": "PROPOSAL", "d": "Clear scope, timeline, price." },
+      { "n": "03", "t": "BUILD", "d": "Regular updates, no silence." },
+      { "n": "04", "t": "HANDOFF", "d": "Clean code, documented, yours." }
+    ]
+  }
+}

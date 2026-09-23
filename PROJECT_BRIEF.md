@@ -31,7 +31,7 @@ A portfolio + services site that:
 - Performance optimization (Core Web Vitals)
 - Accessibility (A11y, WCAG)
 
-## Real project case studies (already in `lib/projects.ts`)
+## Real project case studies (in `content/projects.json`)
 
 - **Byzzer** — retail analytics dashboards (React, TypeScript)
 - **Stio Apparel** — Shopify 2.0 storefront (Shopify, Liquid, Vue.js)
@@ -84,7 +84,7 @@ components, and the real project data file exist and should run with `npm instal
    (replace `YOUR_FORM_ID`)
 3. Once a hero photo is available: add it to `public/hero.jpg`, swap the placeholder `<div>` in
    `app/page.tsx`'s hero section for a real `<img>` tag (see comment in README.md for the exact code)
-4. Test each project's `liveUrl` in `lib/projects.ts` for iframe-embeddability — some sites block
+4. Test each project's `liveUrl` in `content/projects.json` for iframe-embeddability — some sites block
    embedding via `X-Frame-Options`. Set `embeddable: false` for any that fail, so they fall back
    to the link-only card instead of a broken embed
 5. Write a GitHub Actions workflow to auto-deploy the `out/` folder to GitHub Pages on push to

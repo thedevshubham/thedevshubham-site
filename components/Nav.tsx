@@ -3,11 +3,9 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { layout } from '@/lib/content';
 
-const links = [
-  { href: '/services', label: 'SERVICES' },
-  { href: '/work', label: 'WORK' },
-];
+const { logo, links, cta } = layout.nav;
 
 export default function Nav() {
   const pathname = usePathname();
@@ -28,7 +26,7 @@ export default function Nav() {
     >
       <div className="max-w-[1080px] mx-auto px-7 py-5 flex justify-between items-center">
         <Link href="/" className="display text-xl">
-          THEDEVSHUBHAM
+          {logo}
         </Link>
         <nav aria-label="Primary" className="hidden sm:flex gap-2.5 items-center">
           {links.map((l) => {
@@ -50,10 +48,10 @@ export default function Nav() {
           })}
         </nav>
         <Link
-          href="/contact"
+          href={cta.href}
           className="group font-mono text-xs bg-lime border-2 border-ink rounded-full font-bold px-[26px] py-3 transition-all duration-150 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0_0_#14120D]"
         >
-          SAY HELLO <span className="inline-block transition-transform duration-150 group-hover:translate-x-1">→</span>
+          {cta.label} <span className="inline-block transition-transform duration-150 group-hover:translate-x-1">→</span>
         </Link>
       </div>
     </header>

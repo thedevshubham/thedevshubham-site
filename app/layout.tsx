@@ -6,25 +6,24 @@ import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
 import Marquee from '@/components/Marquee';
 import CommandPalette from '@/components/CommandPalette';
+import { site } from '@/lib/content';
 
 const display = Big_Shoulders_Display({ subsets: ['latin'], variable: '--font-display' });
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const jbmono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-jbmono' });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://thedevshubham.com'),
+  metadataBase: new URL(site.url),
   title: {
-    default: 'Shubham Bhatt (thedevshubham) — Frontend Engineer',
-    template: '%s · thedevshubham',
+    default: site.title,
+    template: site.titleTemplate,
   },
-  description:
-    'Frontend engineer building fast, accessible web apps and Shopify storefronts. Web apps, e-commerce, scraping, automation, performance and accessibility.',
+  description: site.description,
   openGraph: {
-    title: 'Shubham Bhatt (thedevshubham) — Frontend Engineer',
-    description:
-      'Frontend engineer building fast, accessible web apps and Shopify storefronts.',
-    url: 'https://thedevshubham.com',
-    siteName: 'thedevshubham',
+    title: site.title,
+    description: site.ogDescription,
+    url: site.url,
+    siteName: site.handle,
     type: 'website',
   },
 };
@@ -32,23 +31,12 @@ export const metadata: Metadata = {
 const personJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
-  name: 'Shubham Bhatt',
-  alternateName: 'thedevshubham',
-  jobTitle: 'Frontend Engineer',
-  url: 'https://thedevshubham.com',
-  sameAs: [
-    'https://github.com/thedevshubham',
-    'https://instagram.com/thedevshubham',
-    'https://x.com/thedevshubham',
-  ],
-  knowsAbout: [
-    'Frontend Development',
-    'Shopify Development',
-    'Web Scraping',
-    'Automation',
-    'Web Performance',
-    'Accessibility',
-  ],
+  name: site.name,
+  alternateName: site.handle,
+  jobTitle: site.jobTitle,
+  url: site.url,
+  sameAs: Object.values(site.socials).map((s) => s.url),
+  knowsAbout: site.knowsAbout,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

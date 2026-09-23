@@ -1,0 +1,17 @@
+{
+  "meta": {
+    "title": "Selected Work",
+    "description": "Case studies — retail analytics, Shopify storefronts, and enterprise e-commerce."
+  },
+  "title": "SELECTED WORK",
+  "intro": "A few of the platforms and storefronts I've built — across companies, agencies, and products. Tap any project for the full breakdown.",
+  "caseStudy": {
+    "back": "← Back to work",
+    "noPreview": "This project isn't publicly deployed right now — here's the breakdown instead.",
+    "openLive": "Open live site ↗",
+    "problem": "THE PROBLEM",
+    "approach": "THE APPROACH",
+    "outcome": "THE OUTCOME",
+    "cta": { "href": "/contact", "label": "START A SIMILAR PROJECT" }
+  }
+}

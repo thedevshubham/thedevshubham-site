@@ -3,6 +3,10 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { projects } from '@/lib/projects';
+import { layout, site } from '@/lib/content';
+
+const copy = layout.commandPalette;
+const { github } = site.socials;
 
 type Item = { label: string; hint: string; action: () => void };
 
@@ -15,18 +19,15 @@ export default function CommandPalette() {
 
   const items: Item[] = useMemo(() => {
     const nav = [
-      { label: 'Home', hint: 'Overview', href: '/' },
-      { label: 'Services', hint: 'What I do', href: '/services' },
-      { label: 'Work', hint: 'Case studies', href: '/work' },
-      { label: 'Contact', hint: 'Get in touch', href: '/contact' },
-      ...projects.map((p) => ({ label: p.name, hint: 'Case study', href: `/work/${p.slug}` })),
+      ...copy.pages,
+      ...projects.map((p) => ({ label: p.name, hint: copy.projectHint, href: `/work/${p.slug}` })),
     ].map((n) => ({ label: n.label, hint: n.hint, action: () => router.push(n.href) }));
 
     const external: Item[] = [
       {
-        label: 'GitHub',
-        hint: '@thedevshubham',
-        action: () => window.open('https://github.com/thedevshubham', '_blank', 'noopener'),
+        label: github.label,
+        hint: github.handle,
+        action: () => window.open(github.url, '_blank', 'noopener'),
       },
     ];
 
@@ -116,11 +117,11 @@ export default function CommandPalette() {
             setActiveIndex(0);
           }}
           onKeyDown={handleInputKeyDown}
-          placeholder="Jump to a page, project, or contact…"
+          placeholder={copy.placeholder}
           className="w-full font-mono text-sm px-5 py-4 bg-transparent border-b-2 border-ink outline-none placeholder:text-muted"
         />
         <ul className="max-h-[360px] overflow-y-auto py-2">
-          {filtered.length === 0 && <li className="px-5 py-4 text-sm text-muted font-mono">No matches.</li>}
+          {filtered.length === 0 && <li className="px-5 py-4 text-sm text-muted font-mono">{copy.empty}</li>}
           {filtered.map((item, i) => (
             <li key={item.label}>
               <button
@@ -141,9 +142,9 @@ export default function CommandPalette() {
           ))}
         </ul>
         <div className="border-t-2 border-ink px-5 py-2.5 flex justify-between font-mono text-[11px] text-muted">
-          <span>↑↓ navigate</span>
-          <span>↵ select</span>
-          <span>esc close</span>
+          {copy.keys.map((k) => (
+            <span key={k}>{k}</span>
+          ))}
         </div>
       </div>
     </div>

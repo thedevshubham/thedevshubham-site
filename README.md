@@ -18,7 +18,7 @@ Open http://localhost:3000
    ```jsx
    <img src="/hero.jpg" alt="Shubham Bhatt, frontend engineer" className="w-full h-full object-cover" />
    ```
-3. **Case study previews:** In `lib/projects.ts`, each project has `embeddable: true/false`.
+3. **Case study previews:** In `content/projects.json`, each project has `embeddable: true/false`.
    Check each live URL yourself — if the site refuses to load in an iframe (shows blank or an
    error), set `embeddable: false` so it falls back to the link-only card instead.
 

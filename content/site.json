@@ -1,0 +1,24 @@
+{
+  "name": "Shubham Bhatt",
+  "handle": "thedevshubham",
+  "jobTitle": "Frontend Engineer",
+  "url": "https://thedevshubham.com",
+  "title": "Shubham Bhatt (thedevshubham) — Frontend Engineer",
+  "titleTemplate": "%s · thedevshubham",
+  "description": "Frontend engineer building fast, accessible web apps and Shopify storefronts. Web apps, e-commerce, scraping, automation, performance and accessibility.",
+  "ogDescription": "Frontend engineer building fast, accessible web apps and Shopify storefronts.",
+  "socials": {
+    "github": { "label": "GitHub", "handle": "@thedevshubham", "url": "https://github.com/thedevshubham" },
+    "instagram": { "label": "Instagram", "handle": "@thedevshubham", "url": "https://instagram.com/thedevshubham" },
+    "x": { "label": "X", "handle": "@thedevshubham", "url": "https://x.com/thedevshubham" }
+  },
+  "knowsAbout": [
+    "Frontend Development",
+    "Shopify Development",
+    "Web Scraping",
+    "Automation",
+    "Web Performance",
+    "Accessibility"
+  ],
+  "replyTime": "Usually reply within a day."
+}
