@@ -62,7 +62,7 @@ export default function CaseStudy({ params }: { params: { slug: string } }) {
             className="w-full h-auto block"
           />
         ) : (
-          <div className="p-10 text-center">
+          <div className="p-10 text-center bg-burnt-orange text-white">
             <p className="font-mono text-sm mb-4">{copy.noPreview}</p>
           </div>
         )}
