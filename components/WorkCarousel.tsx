@@ -37,19 +37,19 @@ export default function WorkCarousel({ projects }: { projects: Project[] }) {
     <div>
       <div
         ref={scrollerRef}
-        className="flex gap-5 overflow-x-auto pt-2 pb-4 snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+        className="relative flex gap-5 overflow-x-auto pt-2 pb-4 pr-2 snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
       >
         {projects.map((p, i) => (
           <ProjectCard key={p.slug} project={p} size="large" wide={i % 2 === 0} />
         ))}
       </div>
-      <div className="flex gap-2 pt-2" role="tablist" aria-label="Selected work pagination">
+      <div className="flex gap-2 pt-2" aria-hidden="true">
         {projects.map((_, i) => (
           <span
             key={i}
             aria-hidden="true"
-            className={`w-2.5 h-2.5 rounded-full border border-ink transition-colors ${
-              i === active ? 'bg-ink' : 'bg-transparent'
+            className={`w-2.5 h-2.5 rounded-full border transition-colors ${
+              i === active ? 'bg-burnt-orange border-burnt-orange' : 'bg-white border-forest-green'
             }`}
           />
         ))}

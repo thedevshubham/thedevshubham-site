@@ -2,7 +2,7 @@
   "stats": [
     { "label": "YEARS BUILDING", "value": "7+", "variant": "number" },
     { "label": "SERVICES", "value": "5", "variant": "number" },
-    { "label": "AVAILABILITY", "value": "OPEN", "variant": "status" },
+    { "label": "AVAILABILITY", "value": "OPEN FOR PROJECTS", "variant": "status" },
     { "label": "BASED", "value": "Remote — Worldwide", "variant": "text" }
   ],
   "hero": {

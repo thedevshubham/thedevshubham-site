@@ -43,6 +43,18 @@
   }
 }
 
+@keyframes draw-underline {
+  from { stroke-dashoffset: 1; }
+  to { stroke-dashoffset: 0; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-underline {
+    stroke-dasharray: 1;
+    animation: draw-underline 900ms ease-out 150ms both;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.001ms !important;

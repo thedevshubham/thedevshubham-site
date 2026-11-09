@@ -4,7 +4,6 @@ import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
-import Marquee from '@/components/Marquee';
 import CommandPalette from '@/components/CommandPalette';
 import { site } from '@/lib/content';
 
@@ -49,8 +48,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
       </head>
-      <body className="bg-cream text-ink font-body">
-        <Marquee />
+      <body className="bg-white text-forest-green font-body">
         <Nav />
         <main>{children}</main>
         <Footer />

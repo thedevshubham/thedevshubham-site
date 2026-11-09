@@ -107,7 +107,7 @@ export default function CommandPalette() {
         aria-modal="true"
         aria-label="Command palette"
         onClick={(e) => e.stopPropagation()}
-        className="w-full max-w-[560px] bg-cream border-2 border-ink rounded-2xl overflow-hidden"
+        className="w-full max-w-[560px] bg-white border-2 border-ink rounded-2xl overflow-hidden"
       >
         <input
           ref={inputRef}
@@ -118,10 +118,10 @@ export default function CommandPalette() {
           }}
           onKeyDown={handleInputKeyDown}
           placeholder={copy.placeholder}
-          className="w-full font-mono text-sm px-5 py-4 bg-transparent border-b-2 border-ink outline-none placeholder:text-muted"
+          className="w-full font-mono text-sm px-5 py-4 bg-transparent border-b-2 border-ink outline-none placeholder:text-forest-green"
         />
         <ul className="max-h-[360px] overflow-y-auto py-2">
-          {filtered.length === 0 && <li className="px-5 py-4 text-sm text-muted font-mono">{copy.empty}</li>}
+          {filtered.length === 0 && <li className="px-5 py-4 text-sm text-forest-green font-mono">{copy.empty}</li>}
           {filtered.map((item, i) => (
             <li key={item.label}>
               <button
@@ -132,16 +132,16 @@ export default function CommandPalette() {
                   close();
                 }}
                 className={`w-full text-left px-5 py-3 flex items-center justify-between gap-3 font-mono text-sm ${
-                  i === activeIndex ? 'bg-lime' : ''
+                  i === activeIndex ? 'bg-burnt-orange text-white' : ''
                 }`}
               >
                 <span className="font-bold">{item.label}</span>
-                <span className="text-xs text-muted">{item.hint}</span>
+                <span className="text-xs">{item.hint}</span>
               </button>
             </li>
           ))}
         </ul>
-        <div className="border-t-2 border-ink px-5 py-2.5 flex justify-between font-mono text-[11px] text-muted">
+        <div className="border-t-2 border-ink px-5 py-2.5 flex justify-between font-mono text-[11px] text-forest-green">
           {copy.keys.map((k) => (
             <span key={k}>{k}</span>
           ))}

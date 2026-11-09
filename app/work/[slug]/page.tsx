@@ -20,7 +20,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
 }
 
 const colorClass: Record<string, string> = {
-  lime: 'bg-lime',
+  lime: 'bg-burnt-orange',
   mint: 'bg-mint',
   gold: 'bg-gold',
 };
@@ -31,11 +31,11 @@ export default function CaseStudy({ params }: { params: { slug: string } }) {
 
   return (
     <div className="max-w-[860px] mx-auto px-7 py-14">
-      <Link href="/work" className="font-mono text-xs text-muted underline">
+      <Link href="/work" className="font-mono text-xs text-forest-green underline">
         {copy.back}
       </Link>
 
-      <div className="font-mono text-xs text-muted mt-8 mb-3">{project.num}</div>
+      <div className="font-mono text-xs text-forest-green mt-8 mb-3">{project.num}</div>
       <h1 className="display text-[clamp(40px,7vw,64px)] mb-5">{project.name}</h1>
       <div className="flex flex-wrap gap-2 mb-10">
         {project.stack.map((t) => (
@@ -67,7 +67,7 @@ export default function CaseStudy({ params }: { params: { slug: string } }) {
           </div>
         )}
         {project.liveUrl && (
-          <div className="border-t-2 border-ink p-4 flex justify-between items-center bg-cream">
+          <div className="border-t-2 border-ink p-4 flex justify-between items-center bg-white">
             <span className="font-mono text-xs">{project.liveUrl.replace('https://', '')}</span>
             <a
               href={project.liveUrl}
@@ -83,21 +83,21 @@ export default function CaseStudy({ params }: { params: { slug: string } }) {
 
       <div className="space-y-8">
         <div>
-          <h2 className="inline-flex items-center gap-2 font-mono text-xs text-muted mb-2">
+          <h2 className="inline-flex items-center gap-2 font-mono text-xs text-forest-green mb-2">
             <span className={`w-1.5 h-1.5 rounded-full ${colorClass[project.color]}`} aria-hidden="true" />
             {copy.problem}
           </h2>
           <p className="text-[15.5px]">{project.problem}</p>
         </div>
         <div>
-          <h2 className="inline-flex items-center gap-2 font-mono text-xs text-muted mb-2">
+          <h2 className="inline-flex items-center gap-2 font-mono text-xs text-forest-green mb-2">
             <span className={`w-1.5 h-1.5 rounded-full ${colorClass[project.color]}`} aria-hidden="true" />
             {copy.approach}
           </h2>
           <p className="text-[15.5px]">{project.approach}</p>
         </div>
         <div>
-          <h2 className="inline-flex items-center gap-2 font-mono text-xs text-muted mb-2">
+          <h2 className="inline-flex items-center gap-2 font-mono text-xs text-forest-green mb-2">
             <span className={`w-1.5 h-1.5 rounded-full ${colorClass[project.color]}`} aria-hidden="true" />
             {copy.outcome}
           </h2>
@@ -108,7 +108,7 @@ export default function CaseStudy({ params }: { params: { slug: string } }) {
       <div className="mt-14 dashed-t pt-8">
         <Link
           href={copy.cta.href}
-          className="group font-mono font-bold text-sm bg-lime border-2 border-ink px-6 py-3.5 rounded-full inline-block transition-all duration-150 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0_0_#14120D]"
+          className="group font-mono font-bold text-sm bg-burnt-orange text-white border-2 border-ink px-6 py-3.5 rounded-full inline-block transition-all duration-150 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0_0_#14120D]"
         >
           {copy.cta.label}{' '}
           <span className="inline-block transition-transform duration-150 group-hover:translate-x-1">→</span>

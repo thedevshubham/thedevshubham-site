@@ -32,7 +32,7 @@ export default function ContactForm() {
 
   if (status === 'sent') {
     return (
-      <div className="border-2 border-ink rounded-2xl p-8 bg-lime">
+      <div className="border-2 border-ink rounded-2xl p-8 bg-burnt-orange text-white">
         <p className="display text-2xl mb-2">{copy.sentTitle}</p>
         <p className="text-sm">
           {site.replyTime} {copy.sentClosing}
@@ -70,22 +70,36 @@ export default function ContactForm() {
         <label htmlFor="project" className="font-mono text-xs block mb-2">
           {copy.projectLabel}
         </label>
-        <select
-          id="project"
-          name="project"
-          required
-          className="w-full border-2 border-ink rounded-lg px-4 py-3 bg-white focus-visible:outline-none focus:ring-2 focus:ring-ink"
-        >
-          <option value="">{copy.projectPlaceholder}</option>
-          {copy.projectOptions.map((o) => (
-            <option key={o}>{o}</option>
-          ))}
-        </select>
+        <div className="relative">
+          <select
+            id="project"
+            name="project"
+            required
+            className="w-full appearance-none border-2 border-ink rounded-lg pl-4 pr-12 py-3 bg-white focus-visible:outline-none focus:ring-2 focus:ring-ink"
+          >
+            <option value="">{copy.projectPlaceholder}</option>
+            {copy.projectOptions.map((o) => (
+              <option key={o}>{o}</option>
+            ))}
+          </select>
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="pointer-events-none absolute right-4 top-1/2 h-4 w-4 -translate-y-1/2 text-forest-green"
+          >
+            <path d="m6 9 6 6 6-6" />
+          </svg>
+        </div>
       </div>
       <button
         type="submit"
         disabled={status === 'sending'}
-        className="group font-mono font-bold text-sm bg-lime border-2 border-ink px-6 py-3.5 rounded-full transition-all duration-150 disabled:opacity-60 enabled:hover:-translate-x-1 enabled:hover:-translate-y-1 enabled:hover:shadow-[4px_4px_0_0_#14120D]"
+        className="group font-mono font-bold text-sm bg-burnt-orange text-white border-2 border-ink px-6 py-3.5 rounded-full transition-all duration-150 disabled:opacity-60 enabled:hover:-translate-x-1 enabled:hover:-translate-y-1 enabled:hover:shadow-[4px_4px_0_0_#14120D]"
       >
         {status === 'sending' ? (
           copy.sending
@@ -96,7 +110,7 @@ export default function ContactForm() {
         )}
       </button>
       {status === 'error' && (
-        <p className="text-sm text-red-700">{copy.error}</p>
+        <p className="text-sm text-forest-green">{copy.error}</p>
       )}
     </form>
   );

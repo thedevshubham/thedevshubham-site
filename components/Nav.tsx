@@ -20,7 +20,7 @@ export default function Nav() {
 
   return (
     <header
-      className={`sticky top-0 z-50 bg-cream border-t-2 border-b-2 transition-colors ${
+      className={`sticky top-0 z-50 bg-white border-t-2 border-b-2 transition-colors ${
         scrolled ? 'border-t-ink border-b-ink' : 'border-t-transparent border-b-transparent'
       }`}
     >
@@ -38,8 +38,8 @@ export default function Nav() {
                 aria-current={active ? 'page' : undefined}
                 className={
                   active
-                    ? 'font-mono text-xs font-bold text-ink px-4 py-2 rounded-full bg-lime border-2 border-ink'
-                    : 'font-mono text-xs text-muted px-4 py-2 rounded-full border border-transparent hover:border-ink hover:text-ink transition-colors'
+                    ? 'font-mono text-xs font-bold px-4 py-2 rounded-full bg-burnt-orange text-white border-2 border-ink'
+                    : 'font-mono text-xs text-forest-green px-4 py-2 rounded-full border border-transparent hover:border-ink hover:text-forest-green transition-colors'
                 }
               >
                 {l.label}
@@ -49,7 +49,7 @@ export default function Nav() {
         </nav>
         <Link
           href={cta.href}
-          className="group font-mono text-xs bg-lime border-2 border-ink rounded-full font-bold px-[26px] py-3 transition-all duration-150 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0_0_#14120D]"
+          className="group font-mono text-xs bg-burnt-orange text-white border-2 border-ink rounded-full font-bold px-[26px] py-3 transition-all duration-150 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0_0_#14120D]"
         >
           {cta.label} <span className="inline-block transition-transform duration-150 group-hover:translate-x-1">→</span>
         </Link>
